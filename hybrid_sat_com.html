@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Parent-Child Teaching Model - Satellite Communication Network</title>
+    <title>BuRtRoNiMuS - AI Satellite Communication Network</title>
     <style>
         :root {
             --primary-blue: #4facfe;
@@ -11,10 +11,11 @@
             --primary-green: #43e97b;
             --secondary-green: #38f9d7;
             --satellite-orange: #ffa500;
-            --beam-white: rgba(255, 255, 255, 0.8);
             --space-dark: #0f0f23;
             --space-medium: #1a1a3a;
             --ground-green: #2d5016;
+            --facebook-bg: #f0f2f5;
+            --facebook-card: #ffffff;
         }
 
         * {
@@ -22,68 +23,64 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, var(--space-dark) 0%, var(--space-medium) 50%, #2d1b69 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: var(--facebook-bg);
             margin: 0;
-            padding: min(20px, 2vw);
+            padding: 8px;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: white;
-            line-height: 1.4;
+            line-height: 1.3;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 500px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: clamp(10px, 2vw, 20px);
-            padding: clamp(15px, 3vw, 30px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            color: #333;
+            margin: 0 auto;
+            background: var(--facebook-card);
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         h1 {
             text-align: center;
-            color: #333;
-            margin-bottom: clamp(10px, 2vw, 20px);
-            font-size: clamp(1.5rem, 4vw, 2.2rem);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: #1c1e21;
+            margin-bottom: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.2;
         }
 
         .subtitle {
             text-align: center;
-            color: #666;
-            margin-bottom: clamp(15px, 3vw, 30px);
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #65676b;
+            margin-bottom: 16px;
+            font-size: 13px;
             font-style: italic;
         }
 
         .diagram {
             position: relative;
             width: 100%;
-            height: clamp(400px, 60vh, 700px);
-            margin: clamp(10px, 2vw, 20px) 0;
+            height: 300px;
+            margin: 12px 0;
             background: linear-gradient(135deg, var(--space-dark) 0%, var(--space-medium) 30%, #87ceeb 100%);
-            border-radius: clamp(8px, 1.5vw, 15px);
+            border-radius: 8px;
+            border: 1px solid #dadde1;
             overflow: hidden;
-            box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.3);
         }
 
-        /* Stars background - responsive */
+        /* Compact stars background */
         .stars {
             position: absolute;
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(1px 1px at 10% 15%, white, transparent),
-                radial-gradient(1px 1px at 20% 35%, white, transparent),
-                radial-gradient(1px 1px at 45% 20%, white, transparent),
-                radial-gradient(1px 1px at 65% 40%, white, transparent),
-                radial-gradient(1px 1px at 80% 15%, white, transparent);
+                radial-gradient(1px 1px at 15% 20%, white, transparent),
+                radial-gradient(1px 1px at 35% 10%, white, transparent),
+                radial-gradient(1px 1px at 60% 25%, white, transparent),
+                radial-gradient(1px 1px at 85% 15%, white, transparent);
             background-repeat: repeat;
-            background-size: clamp(100px, 15vw, 200px) clamp(50px, 8vh, 100px);
+            background-size: 80px 60px;
             animation: twinkle 4s ease-in-out infinite alternate;
         }
 
@@ -92,159 +89,157 @@
             100% { opacity: 1; }
         }
 
-        /* Ground area - responsive */
+        /* Compact ground area */
         .ground {
             position: absolute;
             bottom: 0;
             left: 0;
             right: 0;
-            height: clamp(80px, 20vh, 150px);
+            height: 60px;
             background: linear-gradient(to top, var(--ground-green) 0%, #4a7c26 50%, #87ceeb 100%);
-            border-radius: 0 0 clamp(8px, 1.5vw, 15px) clamp(8px, 1.5vw, 15px);
+            border-radius: 0 0 8px 8px;
         }
 
-        /* Models - fully responsive */
+        /* Compact models */
         .model {
             position: absolute;
-            border-radius: clamp(8px, 1.5vw, 15px);
-            padding: clamp(8px, 1.5vw, 15px);
+            border-radius: 6px;
+            padding: 8px 6px;
             text-align: center;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
             cursor: pointer;
             color: white;
-            font-weight: bold;
-            min-width: clamp(120px, 20vw, 200px);
-            min-height: clamp(50px, 8vh, 80px);
+            font-weight: 600;
+            width: 120px;
+            height: 50px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            border: 2px solid #fff;
         }
 
-        .model:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        .model:active {
+            transform: scale(0.98);
         }
 
         .parent-model {
-            top: clamp(20px, 5vh, 40px);
+            top: 15px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
-            border: 2px solid #fff;
         }
 
         .child-model {
-            bottom: clamp(100px, 25vh, 180px);
+            bottom: 70px;
             left: 50%;
             transform: translateX(-50%);
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
-            border: 2px solid #fff;
         }
 
-        /* Satellites - responsive positioning */
+        /* Compact satellites */
         .satellite {
             position: absolute;
-            width: clamp(30px, 6vw, 60px);
-            height: clamp(30px, 6vw, 60px);
+            width: 30px;
+            height: 30px;
             background: linear-gradient(135deg, #ff6b6b 0%, var(--satellite-orange) 100%);
-            border-radius: clamp(5px, 1vw, 10px);
+            border-radius: 6px;
             border: 2px solid #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(12px, 3vw, 24px);
+            font-size: 14px;
             animation: float 3s ease-in-out infinite;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 0 clamp(10px, 2vw, 20px) rgba(255, 107, 107, 0.5);
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
         }
 
-        .satellite:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 clamp(15px, 3vw, 30px) rgba(255, 107, 107, 0.8);
+        .satellite:active {
+            transform: scale(0.95);
         }
 
-        /* Solar panels - responsive */
+        /* Compact solar panels */
         .satellite::before,
         .satellite::after {
             content: '';
             position: absolute;
-            width: clamp(15px, 3vw, 30px);
-            height: clamp(2px, 0.5vw, 4px);
+            width: 15px;
+            height: 2px;
             background: #ffd700;
             top: 50%;
             transform: translateY(-50%);
-            border-radius: 2px;
+            border-radius: 1px;
         }
 
         .satellite::before {
-            left: clamp(-20px, -4vw, -35px);
+            left: -18px;
         }
 
         .satellite::after {
-            right: clamp(-20px, -4vw, -35px);
+            right: -18px;
         }
 
         .satellite-1 {
-            top: clamp(40px, 10vh, 80px);
-            left: clamp(50px, 10vw, 150px);
+            top: 50px;
+            left: 60px;
             animation-delay: 0s;
         }
 
         .satellite-2 {
-            top: clamp(60px, 15vh, 120px);
-            right: clamp(50px, 10vw, 150px);
+            top: 70px;
+            right: 60px;
             animation-delay: 1s;
         }
 
         .satellite-3 {
-            top: clamp(120px, 25vh, 200px);
-            left: clamp(30px, 6vw, 80px);
+            top: 110px;
+            left: 40px;
             animation-delay: 2s;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(clamp(-5px, -1vh, -10px)); }
+            50% { transform: translateY(-5px); }
         }
 
-        /* Ground elements - responsive */
+        /* Compact ground elements */
         .ground-station {
             position: absolute;
-            bottom: clamp(15px, 3vh, 30px);
-            right: clamp(30px, 8vw, 100px);
-            width: clamp(100px, 20vw, 200px);
-            min-height: clamp(60px, 12vh, 100px);
+            bottom: 10px;
+            right: 40px;
+            width: 80px;
+            height: 40px;
             background: rgba(255, 255, 255, 0.9);
-            border-radius: clamp(5px, 1vw, 10px);
-            padding: clamp(5px, 1vw, 10px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-radius: 4px;
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
             color: #333;
             text-align: center;
-            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            font-size: 9px;
             display: flex;
             flex-direction: column;
             justify-content: center;
+            font-weight: 600;
         }
 
         .operator {
             position: absolute;
-            bottom: clamp(20px, 4vh, 40px);
-            left: clamp(30px, 6vw, 80px);
-            width: clamp(40px, 8vw, 80px);
-            height: clamp(40px, 8vw, 80px);
+            bottom: 15px;
+            left: 40px;
+            width: 35px;
+            height: 35px;
             background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
             border-radius: 50%;
             border: 2px solid #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: clamp(15px, 3vw, 30px);
+            font-size: 16px;
             animation: pulse 2s ease-in-out infinite;
             cursor: pointer;
-            box-shadow: 0 0 clamp(10px, 2vw, 20px) rgba(108, 92, 231, 0.5);
+            box-shadow: 0 0 8px rgba(108, 92, 231, 0.5);
         }
 
         @keyframes pulse {
@@ -252,103 +247,103 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Equipment - responsive */
+        /* Compact equipment */
         .antenna {
             position: absolute;
-            bottom: clamp(60px, 12vh, 120px);
-            left: clamp(50px, 10vw, 105px);
-            width: clamp(15px, 3vw, 30px);
-            height: clamp(30px, 6vh, 60px);
+            bottom: 50px;
+            left: 55px;
+            width: 12px;
+            height: 25px;
             background: linear-gradient(to top, #2d3748 0%, #4a5568 100%);
-            border-radius: clamp(2px, 0.5vw, 5px);
+            border-radius: 2px;
         }
 
         .antenna::before {
             content: '';
             position: absolute;
-            top: clamp(-5px, -1vh, -10px);
+            top: -6px;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: clamp(7px, 1.5vw, 15px) solid transparent;
-            border-right: clamp(7px, 1.5vw, 15px) solid transparent;
-            border-bottom: clamp(10px, 2vh, 20px) solid #e53e3e;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 8px solid #e53e3e;
         }
 
         .ham-radio {
             position: absolute;
-            bottom: clamp(25px, 5vh, 50px);
-            left: clamp(75px, 15vw, 150px);
-            width: clamp(20px, 4vw, 40px);
-            height: clamp(12px, 2.5vh, 25px);
+            bottom: 20px;
+            left: 80px;
+            width: 18px;
+            height: 10px;
             background: #2d3748;
-            border-radius: clamp(2px, 0.5vw, 5px);
+            border-radius: 2px;
             border: 1px solid #4a5568;
         }
 
         .ham-radio::before {
             content: '';
             position: absolute;
-            top: clamp(-7px, -1.5vh, -15px);
+            top: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 2px;
-            height: clamp(7px, 1.5vh, 15px);
+            width: 1px;
+            height: 8px;
             background: #e53e3e;
         }
 
         .laptop {
             position: absolute;
-            bottom: clamp(28px, 5.5vh, 55px);
-            left: clamp(18px, 3.5vw, 35px);
-            width: clamp(18px, 3.5vw, 35px);
-            height: clamp(12px, 2.5vh, 25px);
+            bottom: 22px;
+            left: 15px;
+            width: 16px;
+            height: 10px;
             background: #4a5568;
-            border-radius: clamp(1px, 0.3vw, 3px);
+            border-radius: 1px;
             border: 1px solid #2d3748;
         }
 
         .laptop::before {
             content: '';
             position: absolute;
-            top: clamp(-10px, -2vh, -20px);
+            top: -8px;
             left: 0;
             width: 100%;
-            height: clamp(10px, 2vh, 20px);
+            height: 8px;
             background: #2d3748;
-            border-radius: clamp(1px, 0.3vw, 3px) clamp(1px, 0.3vw, 3px) 0 0;
+            border-radius: 1px 1px 0 0;
         }
 
-        /* Communication beams - responsive */
+        /* Compact communication beams */
         .beam {
             position: absolute;
-            background: linear-gradient(45deg, var(--beam-white) 0%, rgba(255, 255, 255, 0.2) 100%);
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.2) 100%);
             animation: beam-pulse 2s ease-in-out infinite;
             pointer-events: none;
-            height: clamp(1px, 0.3vw, 3px);
+            height: 2px;
         }
 
         .beam-1 {
-            top: clamp(70px, 15vh, 140px);
-            left: clamp(80px, 15vw, 180px);
-            width: clamp(80px, 20vw, 200px);
+            top: 65px;
+            left: 75px;
+            width: 60px;
             transform: rotate(-20deg);
             animation-delay: 0s;
         }
 
         .beam-2 {
-            top: clamp(80px, 18vh, 160px);
-            right: clamp(80px, 15vw, 180px);
-            width: clamp(70px, 18vw, 180px);
+            top: 85px;
+            right: 75px;
+            width: 55px;
             transform: rotate(25deg);
             animation-delay: 0.5s;
         }
 
         .beam-3 {
-            top: clamp(150px, 30vh, 260px);
-            left: clamp(60px, 12vw, 110px);
-            width: clamp(60px, 15vw, 150px);
+            top: 125px;
+            left: 55px;
+            width: 50px;
             transform: rotate(35deg);
             animation-delay: 1s;
         }
@@ -358,82 +353,88 @@
             50% { opacity: 0.8; }
         }
 
-        /* Teaching Stages - responsive */
+        /* Compact teaching stages */
         .stage {
             position: absolute;
             background: rgba(255, 255, 255, 0.95);
-            border: clamp(1px, 0.3vw, 3px) solid;
-            border-radius: clamp(5px, 1vw, 10px);
-            padding: clamp(6px, 1.2vw, 12px);
-            font-weight: bold;
+            border: 2px solid;
+            border-radius: 4px;
+            padding: 4px 3px;
+            font-weight: 600;
             text-align: center;
-            min-width: clamp(80px, 15vw, 110px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+            width: 60px;
+            height: 40px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            font-size: 9px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
         }
 
         .stage-1 {
-            top: clamp(90px, 20vh, 180px);
-            left: clamp(15px, 3vw, 30px);
+            top: 85px;
+            left: 15px;
             border-color: #ff6b6b;
             color: #ff6b6b;
         }
 
         .stage-2 {
-            top: clamp(90px, 20vh, 180px);
-            right: clamp(15px, 3vw, 30px);
+            top: 85px;
+            right: 15px;
             border-color: #4ecdc4;
             color: #4ecdc4;
         }
 
         .stage-3 {
-            bottom: clamp(140px, 35vh, 280px);
-            right: clamp(15px, 3vw, 30px);
+            bottom: 130px;
+            right: 15px;
             border-color: #45b7d1;
             color: #45b7d1;
         }
 
         .stage-4 {
-            bottom: clamp(140px, 35vh, 280px);
-            left: clamp(15px, 3vw, 30px);
+            bottom: 130px;
+            left: 15px;
             border-color: #f9ca24;
             color: #f9ca24;
         }
 
-        /* Arrows - responsive */
+        /* Compact arrows */
         .arrow {
             position: absolute;
-            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-size: 18px;
             font-weight: bold;
             transition: all 0.3s ease;
             animation: arrow-pulse 2s infinite;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .arrow-1 {
-            top: clamp(75px, 17vh, 150px);
-            left: clamp(85px, 17vw, 170px);
+            top: 70px;
+            left: 85px;
             color: #ff6b6b;
             transform: rotate(-45deg);
         }
 
         .arrow-2 {
-            top: clamp(75px, 17vh, 150px);
-            right: clamp(85px, 17vw, 170px);
+            top: 70px;
+            right: 85px;
             color: #4ecdc4;
             transform: rotate(45deg);
         }
 
         .arrow-3 {
-            bottom: clamp(125px, 32vh, 250px);
-            right: clamp(85px, 17vw, 170px);
+            bottom: 115px;
+            right: 85px;
             color: #45b7d1;
             transform: rotate(135deg);
         }
 
         .arrow-4 {
-            bottom: clamp(125px, 32vh, 250px);
-            left: clamp(85px, 17vw, 170px);
+            bottom: 115px;
+            left: 85px;
             color: #f9ca24;
             transform: rotate(-135deg);
         }
@@ -448,26 +449,26 @@
         .arrow-3 { --rotation: 135deg; }
         .arrow-4 { --rotation: -135deg; }
 
-        /* Cycle Indicator - responsive */
+        /* Compact cycle indicator */
         .cycle-indicator {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: clamp(50px, 10vw, 90px);
-            height: clamp(50px, 10vw, 90px);
-            border: clamp(2px, 0.5vw, 4px) dashed #fff;
+            width: 45px;
+            height: 45px;
+            border: 2px dashed #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(0, 0, 0, 0.7);
-            font-weight: bold;
+            font-weight: 600;
             color: #fff;
             animation: rotate 8s linear infinite;
-            font-size: clamp(0.6rem, 1.5vw, 0.9rem);
+            font-size: 8px;
             text-align: center;
-            line-height: 1.1;
+            line-height: 1;
         }
 
         @keyframes rotate {
@@ -475,20 +476,31 @@
             to { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        /* Info panels - responsive grid */
+        .model-title {
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .model-desc {
+            font-size: 8px;
+            opacity: 0.9;
+        }
+
+        /* Facebook-style info panels */
         .info-panels {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(clamp(250px, 40vw, 280px), 1fr));
-            gap: clamp(15px, 3vw, 20px);
-            margin-top: clamp(20px, 4vw, 40px);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
         }
 
         .info-panel {
-            background: #f8f9fa;
-            border-radius: clamp(6px, 1.2vw, 12px);
-            padding: clamp(15px, 3vw, 20px);
-            border-left: clamp(3px, 0.6vw, 5px) solid;
-            font-size: clamp(0.85rem, 1.8vw, 1rem);
+            background: #f7f8fa;
+            border-radius: 6px;
+            padding: 12px;
+            border-left: 3px solid;
+            font-size: 13px;
         }
 
         .panel-parent { border-left-color: var(--primary-blue); }
@@ -496,102 +508,183 @@
         .panel-process { border-left-color: #ff6b6b; }
         .panel-satellite { border-left-color: var(--satellite-orange); }
 
+        .info-panel h3 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1c1e21;
+        }
+
+        .info-panel ul, .info-panel ol {
+            margin: 0;
+            padding-left: 16px;
+        }
+
+        .info-panel li {
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
         .examples {
-            margin-top: clamp(20px, 4vw, 30px);
-            background: #f1f3f4;
-            border-radius: clamp(6px, 1.2vw, 12px);
-            padding: clamp(15px, 3vw, 25px);
+            margin-top: 16px;
+            background: #f7f8fa;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .examples h3 {
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1c1e21;
         }
 
         .example-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(clamp(280px, 45vw, 300px), 1fr));
-            gap: clamp(15px, 3vw, 20px);
-            margin-top: clamp(10px, 2vw, 15px);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 8px;
         }
 
         .example-card {
             background: white;
-            border-radius: clamp(4px, 0.8vw, 8px);
-            padding: clamp(12px, 2.5vw, 15px);
-            border-left: clamp(2px, 0.5vw, 4px) solid;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+            border-radius: 4px;
+            padding: 10px;
+            border-left: 3px solid;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
         }
 
-        .knowledge-distillation { border-left-color: #e74c3c; }
-        .federated-learning { border-left-color: #3498db; }
+        .example-card h4 {
+            margin: 0 0 6px 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1c1e21;
+        }
+
+        .example-card p {
+            margin: 2px 0;
+            line-height: 1.3;
+            color: #65676b;
+        }
+
         .satellite-network { border-left-color: #f39c12; }
+        .knowledge-distillation { border-left-color: #e74c3c; }
         .edge-computing { border-left-color: #27ae60; }
+        .federated-learning { border-left-color: #3498db; }
 
-        .model-title {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            font-weight: bold;
-            margin-bottom: clamp(3px, 0.6vw, 5px);
-        }
-
-        .model-desc {
-            font-size: clamp(0.7rem, 1.4vw, 0.8rem);
-            opacity: 0.9;
-        }
-
-        /* Info boxes - responsive */
         .info-box {
-            margin-top: clamp(15px, 3vw, 30px);
-            padding: clamp(15px, 3vw, 20px);
-            border-radius: clamp(5px, 1vw, 10px);
-            border-left: clamp(3px, 0.6vw, 5px) solid;
-            font-size: clamp(0.85rem, 1.7vw, 1rem);
-            line-height: 1.5;
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid;
+            font-size: 13px;
+            line-height: 1.4;
         }
 
         .info-box h4 {
-            margin-top: 0;
-            margin-bottom: clamp(8px, 1.5vw, 15px);
-            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            margin: 0 0 8px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1c1e21;
         }
 
-        /* Touch improvements for mobile */
-        @media (hover: none) and (pointer: coarse) {
-            .satellite, .operator, .model {
-                cursor: default;
-            }
-            
-            .satellite:hover, .operator:hover, .model:hover {
-                transform: none;
-            }
-            
-            .satellite:active, .operator:active, .model:active {
-                transform: scale(0.95);
-            }
+        .info-box p {
+            margin: 0;
+            color: #1c1e21;
         }
 
-        /* Ultra-wide screens */
-        @media (min-width: 1600px) {
+        /* Facebook mobile optimizations */
+        @media (max-width: 375px) {
             .container {
-                max-width: 1600px;
+                max-width: 100%;
+                margin: 0;
+                border-radius: 0;
+                padding: 12px;
+            }
+            
+            .diagram {
+                height: 260px;
+            }
+            
+            .model {
+                width: 100px;
+                height: 42px;
+                padding: 6px 4px;
+            }
+            
+            .satellite {
+                width: 25px;
+                height: 25px;
+                font-size: 12px;
+            }
+            
+            .satellite::before,
+            .satellite::after {
+                width: 12px;
+                left: -15px;
+            }
+            
+            .satellite::after {
+                right: -15px;
+            }
+            
+            .stage {
+                width: 50px;
+                height: 35px;
+                font-size: 8px;
+                padding: 3px 2px;
+            }
+            
+            .arrow {
+                font-size: 16px;
+            }
+            
+            .cycle-indicator {
+                width: 40px;
+                height: 40px;
+                font-size: 7px;
+            }
+            
+            h1 {
+                font-size: 16px;
+            }
+            
+            .subtitle {
+                font-size: 12px;
             }
         }
 
-        /* Very small screens */
-        @media (max-width: 320px) {
-            .subtitle {
-                display: none;
-            }
-            
-            .info-panels {
-                grid-template-columns: 1fr;
-            }
-            
-            .example-grid {
-                grid-template-columns: 1fr;
-            }
+        /* Prevent text selection on interactive elements */
+        .model, .stage, .arrow, .cycle-indicator, .satellite, .operator {
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Improve touch targets */
+        .model, .satellite, .operator {
+            min-height: 30px;
+            min-width: 30px;
+        }
+
+        /* Facebook-style typography */
+        strong {
+            font-weight: 600;
+            color: #1c1e21;
+        }
+
+        /* Ensure readability */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🛰️ AI Parent-Child Teaching Model- by BuRtRoNiMuS</h1>
+        <h1>🛰️ AI Parent-Child Teaching Model - by BuRtRoNiMuS</h1>
         <div class="subtitle">Distributed Satellite Communication Network with Ground Station Operations</div>
         
         <div class="diagram">
@@ -622,12 +715,8 @@
 
             <!-- Ground Station -->
             <div class="ground-station">
-                <div style="font-weight: bold;">Ground Control</div>
-                <div style="margin-top: 5px;">
-                    📊 Telemetry<br>
-                    🔄 Data Sync<br>
-                    🎛️ Command Center
-                </div>
+                <div>Ground Control</div>
+                <div>📊🔄🎛️</div>
             </div>
 
             <!-- Operator -->
@@ -640,22 +729,22 @@
 
             <!-- Teaching Stages -->
             <div class="stage stage-1">
-                <div>📡 Stage 1</div>
+                <div>📡 S1</div>
                 <div>Satellite Teaching</div>
             </div>
 
             <div class="stage stage-2">
-                <div>🧠 Stage 2</div>
+                <div>🧠 S2</div>
                 <div>Ground Learning</div>
             </div>
 
             <div class="stage stage-3">
-                <div>📻 Stage 3</div>
+                <div>📻 S3</div>
                 <div>Ham Feedback</div>
             </div>
 
             <div class="stage stage-4">
-                <div>🔄 Stage 4</div>
+                <div>🔄 S4</div>
                 <div>Network Update</div>
             </div>
 
@@ -746,14 +835,14 @@
             </div>
         </div>
 
-        <div class="info-box" style="background: #e8f4fd; border-left-color: #2196f3;">
+        <div class="info-box" style="background: #e3f2fd; border-left-color: #2196f3;">
             <h4>🚀 Key Benefits of Satellite-Ground AI Networks</h4>
-            <p>This distributed parent-child model enables <strong>global AI deployment</strong>, <strong>redundant communication pathways</strong>, and <strong>resilient emergency systems</strong>. The satellite constellation provides global coverage and high-capacity processing, while ground stations offer local optimization and human oversight. Ham radio integration ensures communication resilience during disasters or system failures. The continuous learning cycle allows the network to adapt to changing conditions and improve performance across all nodes.</p>
+            <p>This distributed parent-child model enables <strong>global AI deployment</strong>, <strong>redundant communication pathways</strong>, and <strong>resilient emergency systems</strong>. The satellite constellation provides global coverage and high-capacity processing, while ground stations offer local optimization and human oversight. Ham radio integration ensures communication resilience during disasters or system failures.</p>
         </div>
 
         <div class="info-box" style="background: #fff3cd; border-left-color: #ffc107;">
             <h4>📡 Technical Implementation</h4>
-            <p><strong>Uplink/Downlink:</strong> Ka/Ku band for high-speed data • <strong>Ham Radio:</strong> VHF/UHF emergency backup • <strong>Processing:</strong> Edge AI on satellites with ground station optimization • <strong>Protocols:</strong> Software-defined radio with AI-optimized packet routing • <strong>Redundancy:</strong> Multiple communication paths ensure 99.9% network availability</p>
+            <p><strong>Uplink/Downlink:</strong> Ka/Ku band for high-speed data • <strong>Ham Radio:</strong> VHF/UHF emergency backup • <strong>Processing:</strong> Edge AI on satellites with ground station optimization • <strong>Protocols:</strong> Software-defined radio with AI-optimized packet routing</p>
         </div>
     </div>
 </body>
